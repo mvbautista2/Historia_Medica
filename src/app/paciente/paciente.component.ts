@@ -6,8 +6,10 @@ import { PacienteService } from 'app/services/paciente/paciente.service';
   templateUrl: './paciente.component.html',
   styleUrls: ['./paciente.component.css']
 })
+
 export class PacienteComponent implements OnInit {
   pacienteForm: FormGroup;
+  tipoIdentificacion: any;
   constructor(
     public fb: FormBuilder,
     public pacienteService: PacienteService,
@@ -26,8 +28,20 @@ export class PacienteComponent implements OnInit {
       telefono: [''],
       nacionalidad: ['', Validators.required],
       tipoSangre: ['', Validators.required],
-    })
+    });;
+    this.pacienteService.getAllPacientes().subscribe(resp => {
+      this.tipoIdentificacion = resp;
+      
+    },
+      error => { console.error(error) }
+
+    )
   }
   guardar(): void {
+    this.pacienteService.crearPaciente(this.pacienteForm.value).subscribe(resp=>{
+
+    },
+    error=>{console.error(error)}
+    )
   }
 }
