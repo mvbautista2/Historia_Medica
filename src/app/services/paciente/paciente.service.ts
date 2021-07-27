@@ -14,7 +14,7 @@ export class PacienteService {
   /**
    * name
    */
-  public getAllPacientes(): Observable<any>{
+  public listarTodos(): Observable<any>{
     return this.httpClient.get(this.API_SERVER);
   }  
   public crearPaciente(paciente:any):Observable<any>{

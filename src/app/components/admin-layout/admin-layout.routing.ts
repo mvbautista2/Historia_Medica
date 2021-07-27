@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { PacienteComponent } from 'app/paciente/paciente.component';
-import { TableListComponent } from '../../listadoPacientes/listadoPacientes.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { PacienteComponent } from 'app/components/paciente/paciente.component';
+import { TableListComponent } from '../listadoPacientes/listadoPacientes.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
