@@ -1,14 +1,14 @@
 <div class="main-content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-header card-header-primary">
               <h4 class="card-title">Información del representante</h4>
               <p class="card-category">Complete los campos</p>
             </div>
             <div class="card-body">
-              <form >
+              <form [formGroup]="representanteForm" (ngSubmit)="guardar()">
   
                 <div class="row">
                   <div class="col-md-6">

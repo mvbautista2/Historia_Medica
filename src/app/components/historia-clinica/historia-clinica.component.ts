@@ -17,7 +17,11 @@ export class HistoriaClinicaComponent implements OnInit {
   ngOnInit(): void {
   }
  representante(){
-  this.dialog.open(RepresentanteComponent);
+   const dialogConfig = new MatDialogConfig();
+   dialogConfig.disableClose = false;
+   dialogConfig.autoFocus = true;
+   dialogConfig.width = "50%";
+  this.dialog.open(RepresentanteComponent, dialogConfig);
  }
 
 }
