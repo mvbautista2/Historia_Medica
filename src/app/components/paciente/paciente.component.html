@@ -29,7 +29,7 @@
                     <mat-select  name="tipoIdentificacion" id="tipoIdentificacion" formControlName="tipoIdentificacion" class="form-control">
                       <mat-option value="CED">Cédula</mat-option>
                       <mat-option value="PAS">Pasaporte</mat-option>
-                      <mat-option value="">Ninguno</mat-option>
+                      <mat-option value="NIN">Ninguno</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
@@ -41,8 +41,11 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Seguro Social" type="text" formControlName="seguroSocial"
-                      class="form-control">
+                    <mat-label>Seguro Social</mat-label>
+                    <mat-select  name="seguroSocial" id="seguroSocial" formControlName="seguroSocial" class="form-control">
+                      <mat-option value="SI">Sí</mat-option>
+                      <mat-option value="NO">No</mat-option>
+                    </mat-select>
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">

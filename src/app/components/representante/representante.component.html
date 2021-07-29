@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Información del representante</h4>
+              <p class="card-category">Complete los campos</p>
+            </div>
+            <div class="card-body">
+              <form >
+  
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Nombres" type="text" formControlName="nombres" class="form-control">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Apellidos" type="text" formControlName="apellidos" class="form-control">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Tipo de Identificación</mat-label>
+                      <mat-select  name="tipoIdentificacion" id="tipoIdentificacion" formControlName="tipoIdentificacion" class="form-control">
+                        <mat-option value="CED">Cédula</mat-option>
+                        <mat-option value="PAS">Pasaporte</mat-option>
+                        <mat-option value="NIN">Ninguno</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Identificación" type="text" formControlName="identificacion"
+                        class="form-control">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Género</mat-label>
+                      <mat-select  name="genero" id="genero" formControlName="genero" class="form-control">
+                        <mat-option value="FEM">Femenino</mat-option>
+                        <mat-option value="MAS">Masculino</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width"> 
+                      <input matInput placeholder="Dirección" type="text" formControlName="direccion" class="form-control">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Teléfono" type="number" formControlName="telefono" class="form-control">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Parentesco" type="text" formControlName="parentesco" class="form-control">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <button mat-raised-button type="submit" class="btn btn-primary pull-right">Guardar</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

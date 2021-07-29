@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PacienteService } from 'app/services/paciente/paciente.service';
+import {Router} from '@angular/router';
 
 declare var $: any;
 
@@ -15,13 +16,14 @@ export class PacienteComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public pacienteService: PacienteService,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
     this.pacienteForm = this.fb.group({
-      tipoIdentificacion: ['',],
+      tipoIdentificacion: ['',Validators.required],
       identificacion: ['',],
-      seguroSocial: ['',],
+      seguroSocial: ['', Validators.required],
       apellidos: ['', Validators.required],
       nombres: ['', Validators.required],
       genero: ['', Validators.required],
@@ -37,6 +39,7 @@ export class PacienteComponent implements OnInit {
     this.pacienteService.crearPaciente(this.pacienteForm.value).subscribe(resp=>{
       this.pacienteForm.reset();
       this.showNotification('top','center');
+      this.router.navigate(['historia-clinica']);
       
     },
     error=>{console.error(error)}

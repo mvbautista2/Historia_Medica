@@ -4,6 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
+import { HistoriaClinicaComponent } from './components/historia-clinica/historia-clinica.component';
 
 const routes: Routes =[
   {
@@ -17,6 +18,9 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./components/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
+  },{
+    path: 'historia-clinica', component:HistoriaClinicaComponent
+
   }
 ];
 

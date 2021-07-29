@@ -15,6 +15,9 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { HistoriaClinicaComponent } from '../historia-clinica/historia-clinica.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RepresentanteComponent } from '../representante/representante.component';
 
 @NgModule({
   imports: [
@@ -28,6 +31,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatDialogModule,
   ],
   declarations: [
     DashboardComponent,
@@ -36,7 +40,14 @@ import {MatSelectModule} from '@angular/material/select';
     IconsComponent,
     MapsComponent,
     NotificationsComponent, 
-  ]
+    HistoriaClinicaComponent,
+    RepresentanteComponent,
+  ],
+  exports:[
+    MatDialogModule,
+  ],
+  //entryComponents:[HistoriaClinicaComponent]
+
 })
 
 export class AdminLayoutModule {}
