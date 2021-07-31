@@ -14,6 +14,7 @@ declare var $: any;
 export class PacienteComponent implements OnInit {
   pacienteForm: FormGroup;
   paciente:any;
+  inputDisabled:boolean=false;
   constructor(
     public fb: FormBuilder,
     public pacienteService: PacienteService,
