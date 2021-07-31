@@ -13,6 +13,7 @@ declare var $: any;
 
 export class PacienteComponent implements OnInit {
   pacienteForm: FormGroup;
+  paciente:any;
   constructor(
     public fb: FormBuilder,
     public pacienteService: PacienteService,
@@ -45,6 +46,7 @@ export class PacienteComponent implements OnInit {
     error=>{console.error(error)}
     )
   }
+ 
   showNotification(from, align){
 
     const color = 'info';

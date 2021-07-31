@@ -20,4 +20,9 @@ export class PacienteService {
   public crearPaciente(paciente:any):Observable<any>{
     return this.httpClient.post(this.API_SERVER,paciente);
   }
+
+  public eliminarPaciente(codigo):Observable<any>{
+    return this.httpClient.delete(this.API_SERVER + codigo);
+  
+  }
 }

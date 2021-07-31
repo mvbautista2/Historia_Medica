@@ -86,9 +86,9 @@
 
                                             <div class="dropdown-menu dropdown-menu-right"
                                                 aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="">Ver historial</a>
-                                                <a class="dropdown-item" href="">Editar Paciente</a>
-                                                <a class="dropdown-item" href="">Eliminar Paciente</a>
+                                                <a class="dropdown-item">Ver historial</a>
+                                                <a class="dropdown-item" (click)="Editar(row)">Editar Paciente</a>
+                                                <a class="dropdown-item" (click)="eliminar(item)">Eliminar Paciente</a>
                                                 <a class="dropdown-item" href="">Agregar Consulta</a>
                                             </div>
 

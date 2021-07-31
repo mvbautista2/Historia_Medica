@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from 'app/services/paciente/paciente.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogConfig } from '@angular/material/dialog';
+import { PacienteComponent } from '../paciente/paciente.component';
 declare interface RouteInfo {
     path: string;
     title: string;
@@ -21,6 +24,7 @@ export class TableListComponent implements OnInit {
   constructor(
     
     public pacienteService: PacienteService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +37,24 @@ export class TableListComponent implements OnInit {
       error => { console.error(error) }
 
     );
+  }
+  
+  Editar(row){
+  const dialogConfig = new MatDialogConfig();
+   dialogConfig.disableClose = false;
+   dialogConfig.autoFocus = true;
+   dialogConfig.width = "50%";
+  this.dialog.open(PacienteComponent, dialogConfig);
+
+  }
+  eliminar(pacientes){
+    this.pacienteService.eliminarPaciente(pacientes.codigo).subscribe(resp=>{
+      console.log(resp)
+      if(resp){
+        this.pacientes.pop(pacientes);
+        
+      }
+    })
   }
 
 }
