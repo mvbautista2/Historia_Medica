@@ -44,7 +44,9 @@ export class TableListComponent implements OnInit {
     );
   }
   
-  editar(paciente){
+  editar(item){
+    localStorage.setItem("codigo", item.codigo.toString());
+    
   const dialogConfig = new MatDialogConfig();
   dialogConfig.disableClose = false;
   dialogConfig.autoFocus = true;

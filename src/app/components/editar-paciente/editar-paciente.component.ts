@@ -13,7 +13,7 @@ export class EditarPacienteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.editar();
+   this.editar();
   }
   
   editar(){
