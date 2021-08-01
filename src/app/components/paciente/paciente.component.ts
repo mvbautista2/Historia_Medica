@@ -15,33 +15,54 @@ declare var $: any;
 })
 
 export class PacienteComponent implements OnInit {
+  
+  
   pacienteForm: FormGroup;
+  validador:any;
   paciente:any;
   constructor(
     public fb: FormBuilder,
     public pacienteService: PacienteService,
     public historiaClinicaService: HistoriaClinicaService,
     private router:Router,
+    
+    
   ) { }
 
   ngOnInit(): void {
     
+    
     this.pacienteForm = this.fb.group({
       codigo:[''],
       tipoIdentificacion: ['',Validators.required],
-      identificacion: ['',],
+      identificacion: ['',Validators.pattern("^[0-9]*$")],
       seguroSocial: ['', Validators.required],
       apellidos: ['', Validators.required],
       nombres: ['', Validators.required],
       genero: ['', Validators.required],
       fechaNacimiento: ['', Validators.required],
       direccion: [''],
-      telefono: [''],
+      telefono: ['',Validators.pattern("^[0-9]*$")],
       nacionalidad: ['', Validators.required],
       tipoSangre: ['', Validators.required],
-    });;
-    
+    });; 
+    this.pacienteForm.get("tipoIdentificacion").valueChanges.subscribe(valor=>{
+      let identificacion = this.pacienteForm.get("identificacion");
+      switch(valor){
+        case "NIN":
+          identificacion.disable();
+        break;
+        case "CED":
+          identificacion.enable();
+        break;
+        case "PAS":
+          identificacion.enable();
+        break;
+      }   
+    });
   }
+    
+  
   guardar(): void {
     this.pacienteService.crearPaciente(this.pacienteForm.value).subscribe(resp=>{
       this.pacienteForm.reset();
@@ -78,5 +99,44 @@ export class PacienteComponent implements OnInit {
           '<a href="{3}" target="{4}" data-notify="url"></a>' +
         '</div>'
     });
+}
+validadorDeCedula(cedula: String) {
+  let cedulaCorrecta = false;
+  if (cedula.length == 10)
+  {    
+      let tercerDigito = parseInt(cedula.substring(2, 3));
+      if (tercerDigito < 6) {
+          // El ultimo digito se lo considera dígito verificador
+          let coefValCedula = [2, 1, 2, 1, 2, 1, 2, 1, 2];       
+          let verificador = parseInt(cedula.substring(9, 10));
+          let suma:number = 0;
+          let digito:number = 0;
+          for (let i = 0; i < (cedula.length - 1); i++) {
+              digito = parseInt(cedula.substring(i, i + 1)) * coefValCedula[i];      
+              suma += ((parseInt((digito % 10)+'') + (parseInt((digito / 10)+''))));
+        //      console.log(suma+" suma"+coefValCedula[i]); 
+          }
+          suma= Math.round(suma);
+        //  console.log(verificador);
+        //  console.log(suma);
+        //  console.log(digito);
+          if ((Math.round(suma % 10) == 0) && (Math.round(suma % 10)== verificador)) {
+              cedulaCorrecta = true;
+          } else if ((10 - (Math.round(suma % 10))) == verificador) {
+              cedulaCorrecta = true;
+          } else {
+              cedulaCorrecta = false;
+          }
+      } else {
+          cedulaCorrecta = false;
+      }
+  } else {
+      cedulaCorrecta = false;
+  }
+this.validador= cedulaCorrecta;
+
+}
+cambiarEstado(){
+  
 }
 }
