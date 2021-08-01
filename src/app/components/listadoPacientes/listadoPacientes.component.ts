@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
 import { PacienteComponent } from '../paciente/paciente.component';
 import { EditarPacienteComponent } from '../editar-paciente/editar-paciente.component';
 declare interface RouteInfo {
-    path: string;
-    title: string;
-    icon: string;
-    class: string;
+  path: string;
+  title: string;
+  icon: string;
+  class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/paciente', title: 'Agregar Paciente',  icon:'person', class: '' },
+  { path: '/paciente', title: 'Agregar Paciente', icon: 'person', class: '' },
 ];
 @Component({
   selector: 'listadoPacientes',
@@ -21,20 +21,20 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./listadoPacientes.component.css']
 })
 export class TableListComponent implements OnInit {
-  
-  paciente:any;
-  pacientes:any;
+
+  paciente: any;
+  pacientes: any;
   menuItems: any[];
   constructor(
-    
+
     public pacienteService: PacienteService,
     private dialog: MatDialog,
-    private router:Router,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
-   
+
     this.pacienteService.listarTodos().subscribe(resp => {
       this.pacientes = resp;
 
@@ -43,25 +43,28 @@ export class TableListComponent implements OnInit {
 
     );
   }
-  
-  editar(item){
-    localStorage.setItem("codigo", item.codigo.toString());
-    
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.disableClose = false;
-  dialogConfig.autoFocus = true;
-  dialogConfig.width = "50%";
-  this.dialog.open(EditarPacienteComponent, dialogConfig);  
+
+  editar(pacientes) {
+    localStorage.setItem("codigo", pacientes.codigo.toString());
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    this.dialog.open(EditarPacienteComponent, dialogConfig);
 
   }
-  eliminar(pacientes){
-    this.pacienteService.eliminarPaciente(pacientes.codigo).subscribe(resp=>{
+  eliminar(pacientes) {
+    this.pacienteService.eliminarPaciente(pacientes.codigo).subscribe(resp => {
       console.log(resp)
-      if(resp){
+      if (resp) {
         this.pacientes.pop(pacientes);
-        
+
       }
     })
+  }
+  verHistorial(pacientes){    
+    this.router.navigate(['historia-clinica']);
   }
 
 }
