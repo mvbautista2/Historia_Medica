@@ -9,7 +9,7 @@
             <p class="card-category">Complete los campos</p>
           </div>
           <div class="card-body">
-            <form ng-controller="abcd" ng-app="abc" [formGroup]="pacienteForm" (ngSubmit)="guardar()">
+            <form  [formGroup]="pacienteForm" (ngSubmit)="guardar()">
 
               <div class="row">
                 <div class="col-md-6">
@@ -28,7 +28,7 @@
                   <mat-form-field class="example-full-width">
                     <mat-label>Tipo de Identificación</mat-label>
                     <mat-select  ng-model="tipoIdentificacion" name="tipoIdentificacion" id="tipoIdentificacion" formControlName="tipoIdentificacion" 
-                    class="form-control" ng-change="disableInputs = (tipoIdentificacion== 'NIN')">
+                    class="form-control">
                       <mat-option value="CED">Cédula</mat-option>
                       <mat-option value="PAS">Pasaporte</mat-option>
                       <mat-option value="NIN">Ninguno</mat-option>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input ng-disabled="disableInputs" matInput placeholder="Identificación" type="text" formControlName="identificacion"
+                    <input matInput placeholder="Identificación" type="text" formControlName="identificacion"
                       class="form-control">
                   </mat-form-field>
                 </div>

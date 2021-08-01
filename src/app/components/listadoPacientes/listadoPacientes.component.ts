@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PacienteService } from 'app/services/paciente/paciente.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
+import { Paciente } from 'app/modelo/Paciente';
+import { Router } from '@angular/router';
 import { PacienteComponent } from '../paciente/paciente.component';
+import { EditarPacienteComponent } from '../editar-paciente/editar-paciente.component';
 declare interface RouteInfo {
     path: string;
     title: string;
@@ -19,12 +22,14 @@ export const ROUTES: RouteInfo[] = [
 })
 export class TableListComponent implements OnInit {
   
+  paciente:any;
   pacientes:any;
   menuItems: any[];
   constructor(
     
     public pacienteService: PacienteService,
     private dialog: MatDialog,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
@@ -39,12 +44,12 @@ export class TableListComponent implements OnInit {
     );
   }
   
-  Editar(row){
+  editar(paciente){
   const dialogConfig = new MatDialogConfig();
-   dialogConfig.disableClose = false;
-   dialogConfig.autoFocus = true;
-   dialogConfig.width = "50%";
-  this.dialog.open(PacienteComponent, dialogConfig);
+  dialogConfig.disableClose = false;
+  dialogConfig.autoFocus = true;
+  dialogConfig.width = "50%";
+  this.dialog.open(EditarPacienteComponent, dialogConfig);  
 
   }
   eliminar(pacientes){

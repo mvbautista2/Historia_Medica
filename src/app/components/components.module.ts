@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { EditarPacienteComponent } from './editar-paciente/editar-paciente.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    EditarPacienteComponent,
   ],
   exports: [
     FooterComponent,
