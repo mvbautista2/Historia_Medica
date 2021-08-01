@@ -26,7 +26,7 @@ export class PacienteService {
   
   }
   public obtenerPorCodigo(codigo:any):Observable<any>{
-    return this.httpClient.get(this.API_SERVER +codigo);
+    return this.httpClient.get(this.API_SERVER + codigo);
   }
   public modificarPaciente(paciente:any):Observable<any>{
     return this.httpClient.put(this.API_SERVER + paciente.codigo, paciente);

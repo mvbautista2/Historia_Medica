@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HistoriaClinicaService {
-  private API_SERVER = "http://http://localhost:8090/api/historiaClinica/";
+  private API_SERVER = "http://localhost:8090/api/historiaClinica/";
 
   constructor(private httpClient: HttpClient) { }
   
-public obtenerHistoriaPorCodPaciente(codigo:any):Observable<any>{
+public obtenerHistoriaPorCodPaciente(codigo:any){
   return this.httpClient.get(this.API_SERVER + 'paciente/'+codigo);
 }
 public modificarHistoria(historia:any):Observable<any>{
@@ -19,4 +19,7 @@ public modificarHistoria(historia:any):Observable<any>{
 public crearHistoria(historia:any):Observable<any>{
 return this.httpClient.post(this.API_SERVER, historia);
 }
+public listarTodos(): Observable<any>{
+  return this.httpClient.get(this.API_SERVER);
+} 
 }

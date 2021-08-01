@@ -61,7 +61,8 @@ export class TableListComponent implements OnInit {
       }
     })
   }
-  verHistorial(pacientes){    
+  verHistorial(pacientes){   
+    localStorage.setItem("codigo", pacientes.codigo.toString()); 
     this.router.navigate(['historia-clinica']);
   }
   consulta(pacientes){    
