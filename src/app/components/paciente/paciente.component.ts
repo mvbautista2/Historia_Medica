@@ -27,6 +27,7 @@ export class PacienteComponent implements OnInit {
   ngOnInit(): void {
     
     this.pacienteForm = this.fb.group({
+      codigo:[''],
       tipoIdentificacion: ['',Validators.required],
       identificacion: ['',],
       seguroSocial: ['', Validators.required],
