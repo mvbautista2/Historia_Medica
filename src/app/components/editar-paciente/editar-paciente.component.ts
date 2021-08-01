@@ -64,7 +64,9 @@ export class EditarPacienteComponent implements OnInit {
   guardar(): void {
     this.pacienteService.modificarPaciente(this.editarPacienteForm.value).subscribe(resp=>{
     this.showNotification('top','center');
-      this.router.navigate(['table-list']);
+      this.router.navigate(['table-list']).then(() => {
+        window.location.reload();
+      });
       
     },
     error=>{console.error(error)}

@@ -40,7 +40,6 @@ export class PacienteComponent implements OnInit {
       nacionalidad: ['', Validators.required],
       tipoSangre: ['', Validators.required],
     });;
-    this.editar();
     
   }
   guardar(): void {
@@ -52,14 +51,6 @@ export class PacienteComponent implements OnInit {
     },
     error=>{console.error(error)}
     )
-  }
-  editar(){
-    let codigo =localStorage.getItem("codigo");
-    this.pacienteService.obtenerPorCodigo(+codigo).subscribe(resp=>{
-    this.paciente = resp; 
-
-    })
-   
   }
  
   showNotification(from, align){
