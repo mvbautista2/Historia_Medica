@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { EditarPacienteComponent } from './editar-paciente/editar-paciente.component';
+import { ConsultaComponent } from './consulta/consulta.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { EditarPacienteComponent } from './editar-paciente/editar-paciente.compo
     NavbarComponent,
     SidebarComponent,
     EditarPacienteComponent,
+    ConsultaComponent,
   ],
   exports: [
     FooterComponent,

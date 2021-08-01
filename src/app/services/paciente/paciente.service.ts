@@ -25,10 +25,10 @@ export class PacienteService {
     return this.httpClient.delete(this.API_SERVER + codigo);
   
   }
-  public obtenerPorCodigo(codigo:any){
+  public obtenerPorCodigo(codigo:any):Observable<any>{
     return this.httpClient.get(this.API_SERVER +codigo);
   }
-  public modificarPaciente(paciente:any){
+  public modificarPaciente(paciente:any):Observable<any>{
     return this.httpClient.put(this.API_SERVER + paciente.codigo, paciente);
   }
 }

@@ -15,7 +15,10 @@ export class RepresentanteService {
    * name
    */
    
-  public crearRepresentante(paciente:any):Observable<any>{
-    return this.httpClient.post(this.API_SERVER,paciente);
+  public crearRepresentante(representante:any):Observable<any>{
+    return this.httpClient.post(this.API_SERVER,representante);
+  }
+  public modificarRepresentante(representante:any):Observable<any>{
+    return this.httpClient.put(this.API_SERVER + representante.codigo, representante)
   }
 }

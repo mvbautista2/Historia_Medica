@@ -30,9 +30,7 @@ import { PacienteComponent } from './components/paciente/paciente.component';
     RouterModule,
     AppRoutingModule,
     MatInputModule,MatOptionModule, MatSelectModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+    
   ],
   declarations: [
     AppComponent,

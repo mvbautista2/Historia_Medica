@@ -22,7 +22,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class TableListComponent implements OnInit {
 
-  paciente: any;
+  
   pacientes: any;
   menuItems: any[];
   constructor(
@@ -34,9 +34,8 @@ export class TableListComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
-
     this.pacienteService.listarTodos().subscribe(resp => {
-      this.pacientes = resp;
+    this.pacientes = resp;
 
     },
       error => { console.error(error) }
@@ -56,10 +55,9 @@ export class TableListComponent implements OnInit {
   }
   eliminar(pacientes) {
     this.pacienteService.eliminarPaciente(pacientes.codigo).subscribe(resp => {
-      console.log(resp)
-      if (resp) {
-        this.pacientes.pop(pacientes);
-
+      
+      if (resp) {       
+        this.ngOnInit();
       }
     })
   }
