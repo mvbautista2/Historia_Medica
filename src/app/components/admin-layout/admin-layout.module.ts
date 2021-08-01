@@ -40,7 +40,7 @@ import { EditarPacienteComponent } from '../editar-paciente/editar-paciente.comp
   exports:[
     MatDialogModule,
   ],
-  //entryComponents:[HistoriaClinicaComponent]
+  entryComponents:[EditarPacienteComponent]
 
 })
 
