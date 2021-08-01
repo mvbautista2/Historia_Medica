@@ -64,5 +64,8 @@ export class TableListComponent implements OnInit {
   verHistorial(pacientes){    
     this.router.navigate(['historia-clinica']);
   }
+  consulta(pacientes){    
+    this.router.navigate(['consulta']);
+  }
 
 }

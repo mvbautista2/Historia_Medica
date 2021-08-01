@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PacienteService } from 'app/services/paciente/paciente.service';
 import {Router} from '@angular/router';
+import { HistoriaClinicaService } from 'app/services/historiaClinica/historia-clinica.service';
 
 
 
@@ -19,6 +20,7 @@ export class PacienteComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public pacienteService: PacienteService,
+    public historiaClinicaService: HistoriaClinicaService,
     private router:Router,
   ) { }
 

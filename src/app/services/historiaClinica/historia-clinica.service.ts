@@ -16,5 +16,7 @@ public obtenerHistoriaPorCodPaciente(codigo:any):Observable<any>{
 public modificarHistoria(historia:any):Observable<any>{
   return this.httpClient.put(this.API_SERVER+ historia.codigo, historia);
 }
-
+public crearHistoria(historia:any):Observable<any>{
+return this.httpClient.post(this.API_SERVER, historia);
+}
 }

@@ -9,17 +9,17 @@
               <p class="card-category">Complete los campos</p>
             </div>
             <div class="card-body">
-              <form>
+              <form  (ngSubmit)="guardar()">
   
                 <div class="row">
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width">
-                      <input style="text-transform:uppercase;" matInput placeholder="Nombres" type="text" formControlName="nombres" class="form-control">
+                      <input style="text-transform:uppercase;" value="{{paciente.nombres}}" matInput placeholder="Nombres" type="text" formControlName="nombres" class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width">
-                      <input style="text-transform:uppercase;" matInput placeholder="Apellidos" type="text" formControlName="apellidos" class="form-control">
+                      <input style="text-transform:uppercase;" value="{{paciente.apellidos}}" matInput placeholder="Apellidos" type="text" formControlName="apellidos" class="form-control">
                     </mat-form-field>
                   </div>
                 </div>
@@ -27,7 +27,7 @@
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
                       <mat-label>Tipo de Identificación</mat-label>
-                      <mat-select  ng-model="tipoIdentificacion" name="tipoIdentificacion" id="tipoIdentificacion" formControlName="tipoIdentificacion" 
+                      <mat-select value="{{paciente.tipoIdentificacion}}"  ng-model="tipoIdentificacion" name="tipoIdentificacion" id="tipoIdentificacion" formControlName="tipoIdentificacion" 
                       class="form-control" ng-change="disableInputs = (tipoIdentificacion== 'NIN')">
                         <mat-option value="CED">Cédula</mat-option>
                         <mat-option value="PAS">Pasaporte</mat-option>
@@ -37,14 +37,14 @@
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
-                      <input ng-disabled="disableInputs" matInput placeholder="Identificación" type="text" formControlName="identificacion"
+                      <input value="{{paciente.identificacion}}" ng-disabled="disableInputs" matInput placeholder="Identificación" type="text" formControlName="identificacion"
                         class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
                       <mat-label>Seguro Social</mat-label>
-                      <mat-select  name="seguroSocial" id="seguroSocial" formControlName="seguroSocial" class="form-control">
+                      <mat-select  value="{{paciente.seguroSocial}}" name="seguroSocial" id="seguroSocial" formControlName="seguroSocial" class="form-control">
                         <mat-option value="SI">Sí</mat-option>
                         <mat-option value="NO">No</mat-option>
                       </mat-select>
@@ -53,7 +53,7 @@
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
                       <mat-label>Género</mat-label>
-                      <mat-select  name="genero" id="genero" formControlName="genero" class="form-control">
+                      <mat-select value="{{paciente.genero}}" name="genero" id="genero" formControlName="genero" class="form-control">
                         <mat-option value="FEM">Femenino</mat-option>
                         <mat-option value="MAS">Masculino</mat-option>
                       </mat-select>
@@ -61,23 +61,23 @@
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Fecha de nacimiento" type="date" formControlName="fechaNacimiento"
+                      <input  value="{{paciente.fechaNacimiento}}" matInput placeholder="Fecha de nacimiento" type="date" formControlName="fechaNacimiento"
                         class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width"> 
-                      <input style="text-transform:uppercase;" matInput placeholder="Dirección" type="text" formControlName="direccion" class="form-control">
+                      <input value="{{paciente.direccion}}" style="text-transform:uppercase;" matInput placeholder="Dirección" type="text" formControlName="direccion" class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
-                      <input style="text-transform:uppercase;" matInput placeholder="Teléfono" type="number" formControlName="telefono" class="form-control">
+                      <input value="{{paciente.telefono}}" style="text-transform:uppercase;" matInput placeholder="Teléfono" type="number" formControlName="telefono" class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
-                      <input style="text-transform:uppercase;" matInput placeholder="Nacionalidad" type="text" formControlName="nacionalidad" class="form-control">
+                      <input value="{{paciente.nacionalidad}}" style="text-transform:uppercase;" matInput placeholder="Nacionalidad" type="text" formControlName="nacionalidad" class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-4">

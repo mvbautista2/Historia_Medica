@@ -14,6 +14,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { HistoriaClinicaComponent } from '../historia-clinica/historia-clinica.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RepresentanteComponent } from '../representante/representante.component';
+import { EditarPacienteComponent } from '../editar-paciente/editar-paciente.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { RepresentanteComponent } from '../representante/representante.component
     DashboardComponent,
     TableListComponent, 
     HistoriaClinicaComponent,
-    RepresentanteComponent,
+    RepresentanteComponent,    
+    EditarPacienteComponent,
   ],
   exports:[
     MatDialogModule,

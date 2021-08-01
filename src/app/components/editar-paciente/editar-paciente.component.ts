@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PacienteService } from 'app/services/paciente/paciente.service';
 
 @Component({
@@ -8,21 +9,28 @@ import { PacienteService } from 'app/services/paciente/paciente.service';
 })
 export class EditarPacienteComponent implements OnInit {
   paciente:any;
+  
+  editarPacienteForm: FormGroup;
   constructor(
     public pacienteService: PacienteService,
+    public fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
    this.editar();
+   
   }
   
   editar(){
     let codigo =localStorage.getItem("codigo");
-    this.pacienteService.obtenerPorCodigo(+codigo).subscribe(data=>{
-    this.paciente = data;
+    this.pacienteService.obtenerPorCodigo(+codigo).subscribe(resp=>{
+    this.paciente = resp;     
 
     })
    
+  }
+  guardar(){
+
   }
 
 }
