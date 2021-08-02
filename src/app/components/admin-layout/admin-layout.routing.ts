@@ -6,6 +6,8 @@ import { TableListComponent } from '../listadoPacientes/listadoPacientes.compone
 import { HistoriaClinicaComponent } from '../historia-clinica/historia-clinica.component';
 import {ConsultaComponent} from '../consulta/consulta.component';
 import { ConsultaEnfermedadComponent } from '../consulta-enfermedad/consulta-enfermedad.component';
+import { ConsultaCompletaComponent } from '../consulta-completa/consulta-completa.component';
+import { ListadoTratamientosComponent } from '../listado-tratamientos/listado-tratamientos.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -57,4 +59,6 @@ export const AdminLayoutRoutes: Routes = [
     {path: 'historia-clinica', component:HistoriaClinicaComponent},
     {path: 'consulta', component:ConsultaComponent},
     {path:'consulta-enfermedad', component:ConsultaEnfermedadComponent},
+    {path:'consulta-completa',component:ConsultaCompletaComponent},
+    {path:'listado-tratamientos',component:ListadoTratamientosComponent},
 ];

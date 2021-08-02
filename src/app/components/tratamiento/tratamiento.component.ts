@@ -22,7 +22,7 @@ export class TratamientoComponent implements OnInit {
   ngOnInit(): void {
     this.tratamientoForm = this.fb.group({
       
-      codigoConsulta:[''],
+      codigoConsultaEnfermedad:[''],
       codigoMedicamento:[''],
       fechaInicio:[''],
       fechaFin:[''],
@@ -49,7 +49,7 @@ export class TratamientoComponent implements OnInit {
     let item = localStorage.getItem("item");
     this.tratamientoForm.setValue({
       
-      codigoConsulta:item,
+      codigoConsultaEnfermedad:item,
       codigoMedicamento:'',
       fechaInicio:'',
       fechaFin:'',

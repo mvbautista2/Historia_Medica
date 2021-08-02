@@ -14,6 +14,8 @@ import { ListarHistoriaClinicaComponent } from './listar-historia-clinica/listar
 import { ConsultaEnfermedadComponent } from './consulta-enfermedad/consulta-enfermedad.component';
 import { ConsultaExamenComponent } from './consulta-examen/consulta-examen.component';
 import { TratamientoComponent } from './tratamiento/tratamiento.component';
+import { ConsultaCompletaComponent } from './consulta-completa/consulta-completa.component';
+import { ListadoTratamientosComponent } from './listado-tratamientos/listado-tratamientos.component';
 
 @NgModule({
   imports: [
@@ -31,6 +33,8 @@ import { TratamientoComponent } from './tratamiento/tratamiento.component';
     ConsultaEnfermedadComponent,
     ConsultaExamenComponent,
     TratamientoComponent,
+    ConsultaCompletaComponent,
+    ListadoTratamientosComponent,
   ],
   exports: [
     FooterComponent,

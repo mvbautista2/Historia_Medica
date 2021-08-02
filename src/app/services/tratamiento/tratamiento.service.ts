@@ -14,4 +14,7 @@ export class TratamientoService {
   public crearTratamiento(tratamiento:any):Observable<any>{
     return this.httpClient.post(this.API_SERVER, tratamiento);
   }
+  public obtenerPorConsultaEnfermedad(consultaenfermedad:any):Observable<any>{
+    return this.httpClient.get(this.API_SERVER+"codigoConsultaEnfermedad/"+consultaenfermedad)
+  }
 }

@@ -1,0 +1,61 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Tratamientos</h4>
+                        <p class="card-category"> Lista de tratamientos de la enfermedad</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class=" text-primary">
+                                    <th>
+                                        NOMBRE
+                                    </th>
+                                    <th>
+                                        TIPO
+                                    </th>
+                                    <th>
+                                        DOSIS
+                                    </th>
+                                    <th>
+                                        FECHA INICIO
+                                    </th>
+                                    <th>
+                                        FECHA FIN
+                                    </th>
+                                    
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let item of tratamientos">
+                                        <td>
+                                            {{item.nombre}}
+                                        </td>
+                                        <td>
+                                            {{item.tipo}}
+                                        </td>
+                                        <td>
+                                            {{item.dosis}}
+                                        </td>
+
+                                        <td>
+                                            {{item.fechaInicio}}
+                                        </td>
+                                        <td>
+                                            {{item.fechaFin}}
+                                        </td>
+                                       
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

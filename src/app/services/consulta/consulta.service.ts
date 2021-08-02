@@ -22,4 +22,7 @@ export class ConsultaService {
     public listarPorCodigoHistoria(codigoHistoria:any): Observable<any>{
     return this.httpClient.get(this.API_SERVER+"historia"+codigoHistoria);
   } 
+  public obtenerPorCodigo(codigoConsulta:any):Observable<any>{
+    return this.httpClient.get(this.API_SERVER+codigoConsulta);
+  }
 }

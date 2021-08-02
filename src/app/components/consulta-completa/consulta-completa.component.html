@@ -1,0 +1,185 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Datos de la Consulta</h4>
+                        <p class="card-category"></p>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="consultaForm">
+                            <input type="hidden" formControlName="codigo">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input type="text" formControlName="codigoMedico" matInput placeholder="Medico"
+                                            class="form-control">
+                                    </mat-form-field>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input type="number" matInput formControlName="altura" placeholder="Altura"
+                                            class="form-control">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input type="number" scale="0.01" matInput formControlName="peso"
+                                            placeholder="Peso" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input type="number" scale="0.01" matInput name="temperatura"
+                                            formControlName="temperatura" placeholder="Temperatura"
+                                            class="form-control">
+                                    </mat-form-field>
+                                </div>
+                            
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput name="imc" formControlName="imc" placeholder="IMC"
+                                            class="form-control">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput name="presionSistolica" formControlName="presionSistolica"
+                                            placeholder="Presion Sistólica" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput name="presionDiastolica" formControlName="presionDiastolica"
+                                            placeholder="Presión Diastólica" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title ">Enfermedades</h4>
+            <p class="card-category"> Enfermedades de la consulta</p>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class=" text-primary">
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Enfermedad
+                        </th>
+                        <th>
+                            Diagnóstico
+                        </th>
+                        <th>
+                            Fecha del Diagnóstico
+                        </th>
+                        <th>
+                            Observación
+                        </th>
+
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let item of enfermedades">
+                            <td>
+                                {{item.codigo}}
+                            </td>
+                            <td>
+                                {{item.codigoEnfermedad}} {{item.nombreEnfermedad}}
+                            </td>
+                            <td>
+                                {{item.diagnostico}}
+                            </td>
+                            <td>
+                                {{item.fechaDiagnostico}}
+                            </td>
+                            <td>
+                                {{item.observacion}}
+                            </td>
+
+                            <td>
+                                <a class="nav-link" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more</i>
+
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" (click)="agregarTratamientos(item)">Agregar
+                                        tratamientos</a>
+                                        <a class="dropdown-item" (click)="verTratamientos(item)">Ver
+                                            tratamientos</a>
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title ">Exámenes</h4>
+            <p class="card-category"> Exámenes de la consulta</p>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class=" text-primary">
+                        <th>
+                            Examen
+                        </th>
+                        <th>
+                            Motivo
+                        </th>
+                        <th>
+                            Fecha del Examen
+                        </th>
+                        <th>
+                            Url del resultado Informe
+                        </th>
+                        <th>
+                            Url del resultado Imagen
+                        </th>
+
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let item2 of examenes">
+                            <td>
+                                {{item2.codigo}}
+                            </td>
+                            <td>
+                                {{item2.motivo}}
+                            </td>
+                            <td>
+                                {{item2.fechaExamen}}
+                            </td>
+                            <td>
+                                {{item2.urlResultadoInforme}}
+                            </td>
+                            <td>
+                                {{item2.urlResultadoImagen}}
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
