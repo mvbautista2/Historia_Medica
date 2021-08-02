@@ -10,37 +10,42 @@
                     <div class="card-body">
                         <form [formGroup]="consultaExamenForm" (ngSubmit)="guardarConsultaExamen()">
                             <input type="hidden"  formControlName="codigoConsulta">
-                            <!--para esto debo obtener el codigo de la consulta(aun no se como)-->
                             <div class="row">
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <mat-label>Enfermedad</mat-label>
-                                        <mat-select matInput placeholder="Enfermedad" name="codigoEnfermedad"
-                                            id="codigoEnfermedad" formControlName="codigoEnfermedad"
+                                        <mat-label>Examen Medico</mat-label>
+                                        <mat-select matInput placeholder="Examen Medico" name="codigoExamenMedico"
+                                            id="codigoExamenMedico" formControlName="codigoExamenMedico"
                                             class="form-control">
-                                            <mat-option value="{{item.codigo}}" *ngFor="let item of enfermedades">
-                                                {{item.codigo}} {{item.nombre}}</mat-option>
+                                            <mat-option value="{{item.codigo}}" *ngFor="let item of examenes">
+                                                {{item.nombre}} {{item.tipo}}</mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Fecha de diagnostico" type="date"
-                                            formControlName="fechaDiagnostico" class="form-control">
+                                        <input matInput placeholder="Fecha de examen" type="datetime-local"
+                                            formControlName="fechaExamen" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Motivo" type="text"
+                                            formControlName="motivo" class="form-control">
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Diagnóstico" type="text"
-                                            formControlName="diagnostico" class="form-control">
+                                        <input matInput placeholder="Url Resultado Informe" type="text"
+                                            formControlName="urlresultadoInforme" class="form-control">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Observación" type="text"
-                                            formControlName="observacion" class="form-control">
+                                        <input matInput placeholder="Url Resultado Imagen" type="text"
+                                            formControlName="rlresultadoImagen" class="form-control">
                                     </mat-form-field>
                                 </div>
                             </div>

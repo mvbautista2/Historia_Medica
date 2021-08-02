@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ConsultaComponent } from '../consulta/consulta.component';
 import { ConsultaService } from '../../services/consulta/consulta.service';
 import { isNgTemplate } from '@angular/compiler';
+import { ConsultaExamenComponent } from '../consulta-examen/consulta-examen.component';
 
 declare var $: any;
 declare interface RouteInfo {
@@ -157,7 +158,11 @@ export class HistoriaClinicaComponent implements OnInit {
   }
   agregarExamenes(item){
     localStorage.setItem("item", item.codigo.toString());  
-    this.router.navigate(['consulta-examen']);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    this.dialog.open(ConsultaExamenComponent, dialogConfig);
   }
 
 }

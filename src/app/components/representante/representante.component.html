@@ -6,22 +6,19 @@
             <div class="card-header card-header-primary">
               <h4 class="card-title">Información del representante</h4>
               <p class="card-category">Complete los campos</p>
-              <p class="card-category">{{paciente.codigo}}</p>
             </div>
             <div class="card-body">
               <form [formGroup]="representanteForm" (ngSubmit)="guardar()">
   
                 <div class="row">
-                  <input type="text" formControlName="codigo" value= "{{representante.codigo}}">
-                  <input type="text" value={{representante.codigoPaciente}} name="codigoPaciente" formControlName="codigoPaciente" matInput class="form-control">
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width">
-                      <input style="text-transform:uppercase;" matInput placeholder="Nombres" type="text" formControlName="nombres" class="form-control">
+                      <input matInput placeholder="Nombres" type="text" formControlName="nombres" class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width">
-                      <input style="text-transform:uppercase;" matInput placeholder="Apellidos" type="text" formControlName="apellidos" class="form-control">
+                      <input matInput placeholder="Apellidos" type="text" formControlName="apellidos" class="form-control">
                     </mat-form-field>
                   </div>
                 </div>
@@ -53,29 +50,21 @@
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width"> 
-                      <input style="text-transform:uppercase;" matInput placeholder="Dirección" type="text" formControlName="direccion" class="form-control">
+                      <input matInput placeholder="Dirección" type="text" formControlName="direccion" class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
-                      <input style="text-transform:uppercase;" matInput placeholder="Teléfono" type="number" formControlName="telefono" class="form-control">
+                      <input matInput placeholder="Teléfono" type="number" formControlName="telefono" class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
-                      <mat-label>Parentesco*</mat-label>
-                      <mat-select name="parentesco" id="parentesto" formControlName="parentesco" class="form-control">
-                        <mat-option value="PAD">Padre</mat-option>
-                        <mat-option value="MAD">Madre</mat-option>
-                        <mat-option value="ABU">Abuelo/Abuela</mat-option>
-                        <mat-option value="TUT">Tutor Legal</mat-option>
-                        <mat-option value="HER">Hermano/Hermana</mat-option>
-                      </mat-select>
+                      <input matInput placeholder="Parentesco" type="text" formControlName="parentesco" class="form-control">
                     </mat-form-field>
                   </div>
                 </div>
-                <button mat-raised-button type="submit"  [disabled]="this.isButtonAdd" class="btn btn-primary pull-right" >Guardar</button>
-                <button mat-raised-button type="submit"  [disabled]="this.isButtonEdit" class="btn btn-primary pull-right">Editar</button>
+                <button mat-raised-button type="submit" class="btn btn-primary pull-right">Guardar</button>
                 <div class="clearfix"></div>
               </form>
             </div>
