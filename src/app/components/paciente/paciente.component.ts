@@ -47,6 +47,8 @@ export class PacienteComponent implements OnInit {
     });; 
     this.pacienteForm.get("tipoIdentificacion").valueChanges.subscribe(valor=>{
       let identificacion = this.pacienteForm.get("identificacion");
+      console.log(valor);
+      alert(valor);
       switch(valor){
         case "NIN":
           identificacion.reset();
