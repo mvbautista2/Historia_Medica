@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Datos del tratamiento</h4>
+                        <p class="card-category">Complete los campos</p>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="tratamientoForm" (ngSubmit)="guardarTratamiento()">
+                            <input type="hidden"  formControlName="codigoConsultaEnfermedad">
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Medicamento</mat-label>
+                                        <mat-select matInput placeholder="Medicamento" name="codigoMedicamento"
+                                            id="codigoMedicamento" formControlName="codigoMedicamento"
+                                            class="form-control">
+                                            <mat-option value="{{item.codigo}}" *ngFor="let item of medicamentos">
+                                                {{item.nombre}}-{{item.tipo}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Fecha de Inicio" type="date"
+                                            formControlName="fechaDiagnostico" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Fecha de Fin" type="date"
+                                            formControlName="fechaDiagnostico" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Dosis" type="text"
+                                            formControlName="dosis" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-primary pull-right">Guardar</button>
+                            <div class="clearfix"></div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

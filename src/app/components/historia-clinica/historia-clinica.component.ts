@@ -8,6 +8,7 @@ import { PacienteService } from 'app/services/paciente/paciente.service';
 import { Router } from '@angular/router';
 import { ConsultaComponent } from '../consulta/consulta.component';
 import { ConsultaService } from '../../services/consulta/consulta.service';
+import { isNgTemplate } from '@angular/compiler';
 
 declare var $: any;
 declare interface RouteInfo {
@@ -34,8 +35,9 @@ export class HistoriaClinicaComponent implements OnInit {
     private dialog: MatDialog,
     public pacienteService: PacienteService,
     public fb: FormBuilder,
-      public historiaClinicaService: HistoriaClinicaService,
+    public historiaClinicaService: HistoriaClinicaService,
     public consultaService: ConsultaService,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
@@ -145,6 +147,17 @@ export class HistoriaClinicaComponent implements OnInit {
     dialogConfig.width = "50%";
     this.dialog.open(ConsultaComponent, dialogConfig);
 
+  }
+  verHistorial(item){
+
+  }
+  agregarEnfermedades(item){
+    localStorage.setItem("item", item.codigo.toString());  
+    this.router.navigate(['consulta-enfermedad']);
+  }
+  agregarExamenes(item){
+    localStorage.setItem("item", item.codigo.toString());  
+    this.router.navigate(['consulta-examen']);
   }
 
 }

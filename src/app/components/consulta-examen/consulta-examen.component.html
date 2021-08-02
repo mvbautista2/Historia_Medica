@@ -8,8 +8,8 @@
                         <p class="card-category">Complete los campos</p>
                     </div>
                     <div class="card-body">
-                        <form [formGroup]="consultaEnfermedadForm" (ngSubmit)="guardarConsultaEnfermedad()">
-                            <input type="hidden" value="{{consulta.codigo}" formControlName="codigoHistoriaClinica">
+                        <form [formGroup]="consultaExamenForm" (ngSubmit)="guardarConsultaExamen()">
+                            <input type="hidden"  formControlName="codigoConsulta">
                             <!--para esto debo obtener el codigo de la consulta(aun no se como)-->
                             <div class="row">
                                 <div class="col-md-4">

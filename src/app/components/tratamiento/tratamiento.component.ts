@@ -21,14 +21,11 @@ export class TratamientoComponent implements OnInit {
   ngOnInit(): void {
     this.tratamientoForm = this.fb.group({
       
-      codigoHistoriaClinica:[''],
-      codigoMedico:[''],
-      fechaConsulta:[''],
-      altura:[''],
-      peso:[''],
-      temperatura:[''],
-      presionSistolica:[''],
-      presionDiastolica:[''],
+      codigoConsulta:[''],
+      codigoMedicamento:[''],
+      fechaInicio:[''],
+      fechaFin:[''],
+      dosis:[''],
 
     });;
     this.medicamentoService.listarTodos().subscribe(resp=>{

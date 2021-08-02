@@ -81,7 +81,7 @@ export class ConsultaComponent implements OnInit {
     const color = 'info';
     $.notify({
         icon: "notifications",
-        message: "El paciente ha sido editado con éxito"
+        message: "La consulta se registró con éxito"
 
     },{
         type: color,
