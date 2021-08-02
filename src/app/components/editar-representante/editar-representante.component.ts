@@ -5,20 +5,16 @@ import { PacienteService } from 'app/services/paciente/paciente.service';
 import {Router} from '@angular/router';
 declare var $: any;
 
-
 @Component({
-  selector: 'representante',
-  templateUrl: './representante.component.html',
-  styleUrls: ['./representante.component.css']
+  selector: 'editar-representante',
+  templateUrl: './editar-representante.component.html',
+  styleUrls: ['./editar-representante.component.css']
 })
-export class RepresentanteComponent implements OnInit {
-  representanteEmpty: any;
-  representante: any;
-  isButtonAdd: boolean = true;
-  isButtonEdit: boolean = true;
+export class EditarRepresentanteComponent implements OnInit {
+  representanteEditarForm: FormGroup;
   codPaciente: any;
+  representante: any;
   paciente: any;
-  representanteForm: FormGroup;
   constructor(
     public fb: FormBuilder,
     public representanteService: RepresentanteService,
@@ -28,8 +24,9 @@ export class RepresentanteComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.representanteForm = this.fb.group({
-      codigoPaciente:[''],
+    this.representanteEditarForm = this.fb.group({
+      codigo: ['',],
+      codigoPaciente: [''],
       nombres: ['', Validators.required],
       apellidos: ['', Validators.required],
       tipoIdentificacion: ['', Validators.required],
@@ -42,9 +39,10 @@ export class RepresentanteComponent implements OnInit {
     });;
 
     this.obtenerCodigo();
-    this.datosRepresentante();
+    this.editarRepresentante();
     
   }
+
 
   obtenerCodigo() {
     let codigo = localStorage.getItem("codigo");
@@ -54,9 +52,29 @@ export class RepresentanteComponent implements OnInit {
 
     })
   }
+
+  editarRepresentante() {
+    let codigo = localStorage.getItem("codigo");
+    this.representanteService.obtenerRepresentantePorCodPaciente(+codigo).subscribe(data => {
+      this.representante = data;
+      this.representanteEditarForm.setValue({
+        codigo: this.representante.codigo,
+        codigoPaciente: this.representante.codigoPaciente,
+        tipoIdentificacion: this.representante.tipoIdentificacion,
+        identificacion: this.representante.identificacion,
+        apellidos: this.representante.apellidos,
+        nombres: this.representante.nombres,
+        genero: this.representante.genero,
+        direccion: this.representante.direccion,
+        telefono: this.representante.telefono,
+        parentesco: this.representante.parentesco
+      })
+    })
+  }
+  
   guardar(): void {
-    this.representanteService.crearRepresentante(this.representanteForm.value).subscribe(resp => {
-      //this.representanteForm.disable();
+
+    this.representanteService.modificarRepresentante(this.representanteEditarForm.value).subscribe(resp => {
       this.showNotification('top', 'center');
       this.router.navigate(['historia-clinica']).then(() => {
         window.location.reload();
@@ -66,27 +84,12 @@ export class RepresentanteComponent implements OnInit {
     )
   }
 
-  datosRepresentante() {
-    let codigo = localStorage.getItem("codigo");
-      this.representanteForm.setValue({
-        codigoPaciente: codigo,
-        tipoIdentificacion:'',
-        identificacion: '',
-        apellidos: '',
-        nombres:'',
-        genero:'',
-        direccion:'',
-        telefono:'',
-        parentesco:''
-      });
-  }
-
   showNotification(from, align) {
 
     const color = 'info';
     $.notify({
       icon: "notifications",
-      message: "El representante del paciente ha sido creado con éxito"
+      message: "El representante del paciente no se pudo modificar"
 
     }, {
       type: color,
@@ -107,6 +110,5 @@ export class RepresentanteComponent implements OnInit {
         '</div>'
     });
   }
-
 
 }

@@ -53,14 +53,6 @@ export class TableListComponent implements OnInit {
     this.dialog.open(EditarPacienteComponent, dialogConfig);
 
   }
-  eliminar(pacientes) {
-    this.pacienteService.eliminarPaciente(pacientes.codigo).subscribe(resp => {
-      
-      if (resp) {       
-        this.ngOnInit();
-      }
-    })
-  }
   verHistorial(pacientes){   
     localStorage.setItem("codigo", pacientes.codigo.toString()); 
     this.router.navigate(['historia-clinica']);
