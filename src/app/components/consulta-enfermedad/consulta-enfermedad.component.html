@@ -1,54 +1,56 @@
-
 <div class="main-content">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header card-header-primary">
-              <h4 class="card-title">Datos de la Consulta</h4>
-              <p class="card-category">Complete los campos</p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Datos de la Consulta</h4>
+                        <p class="card-category">Complete los campos</p>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="consultaEnfermedadForm" (ngSubmit)="guardarConsultaEnfermedad()">
+                            <input type="hidden" value="{{consulta.codigo}" formControlName="codigoHistoriaClinica">
+                            <!--para esto debo obtener el codigo de la consulta(aun no se como)-->
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Enfermedad</mat-label>
+                                        <mat-select matInput placeholder="Enfermedad" name="codigoEnfermedad"
+                                            id="codigoEnfermedad" formControlName="codigoEnfermedad"
+                                            class="form-control">
+                                            <mat-option value="{{item.codigo}}" *ngFor="let item of enfermedades">
+                                                {{item.codigo}} {{item.nombre}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Fecha de diagnostico" type="date"
+                                            formControlName="fechaDiagnostico" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Diagnóstico" type="text"
+                                            formControlName="diagnostico" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Observación" type="text"
+                                            formControlName="observacion" class="form-control">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-primary pull-right">Guardar</button>
+                            <div class="clearfix"></div>
+                        </form>
+
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-<form [formGroup]="consultaEnfermedadForm" (ngSubmit)="guardarConsultaEnfermedad()" >
-    <input type="hidden" value="{{consulta.codigo}" formControlName="codigoHistoriaClinica"><!--para esto debo obtener el codigo
-        de la consulta(aun no se como)-->
-    <div class="row">
-      <div class="col-md-4">
-        <mat-form-field class="example-full-width">
-            <mat-label>Enfermedad</mat-label>
-            <mat-select matInput placeholder="Enfermedad"  name="codigoEnfermedad" id="codigoEnfermedad" formControlName="codigoEnfermedad"
-            class="form-control">
-              <mat-option value="{{item.codigo}}" *ngFor="let item of enfermedades">{{item.codigo}} {{item.nombre}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-      </div>
-      <div class="col-md-4">
-        <mat-form-field class="example-full-width">
-          <input   matInput placeholder="Fecha de diagnostico" type="date" formControlName="fechaDiagnostico"
-            class="form-control">
-        </mat-form-field>
-      </div>
-      </div>
-      <div class="row">
-      <div class="col-md-2">
-        <mat-form-field class="example-full-width">
-          <input  matInput placeholder="Diagnóstico" type="text" formControlName="diagnostico" class="form-control">
-        </mat-form-field>
-      </div>
-      <div class="col-md-2">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Observación" type="text" formControlName="observacion"
-            class="form-control">
-        </mat-form-field>
-      </div>
+        </div>
     </div>
-    <button mat-raised-button type="submit" class="btn btn-primary pull-right">Guardar</button>
-    <div class="clearfix"></div>
-  </form>
-   
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>

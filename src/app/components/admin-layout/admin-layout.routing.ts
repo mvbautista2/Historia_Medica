@@ -5,6 +5,7 @@ import { PacienteComponent } from 'app/components/paciente/paciente.component';
 import { TableListComponent } from '../listadoPacientes/listadoPacientes.component';
 import { HistoriaClinicaComponent } from '../historia-clinica/historia-clinica.component';
 import {ConsultaComponent} from '../consulta/consulta.component';
+import { ConsultaEnfermedadComponent } from '../consulta-enfermedad/consulta-enfermedad.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -55,4 +56,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'table-list', component: TableListComponent },   
     {path: 'historia-clinica', component:HistoriaClinicaComponent},
     {path: 'consulta', component:ConsultaComponent},
+    {path:'consulta-enfermedad', component:ConsultaEnfermedadComponent},
 ];
