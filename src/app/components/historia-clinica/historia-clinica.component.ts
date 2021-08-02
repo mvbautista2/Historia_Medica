@@ -45,7 +45,7 @@ export class HistoriaClinicaComponent implements OnInit {
       fechaCreacion: [''],
     });;
 
-    this.editarHistorial();
+    this.editarHistoria();
     this.obtenerCodigo();
     
   }
@@ -59,7 +59,7 @@ export class HistoriaClinicaComponent implements OnInit {
     })
   }
 
-  editarHistorial() {
+  editarHistoria() {
     let codigo = localStorage.getItem("codigo");
     this.historiaClinicaService.obtenerHistoriaPorCodPaciente(+codigo).subscribe(data => {
       this.historia = data;
@@ -77,7 +77,7 @@ export class HistoriaClinicaComponent implements OnInit {
 
   
 
-  guardarHistoria(): void {
+  guardar(): void {
 
     this.historiaClinicaService.modificarHistoria(this.historiaForm.value).subscribe(resp => {
       this.showNotification('top', 'center');
@@ -100,7 +100,7 @@ export class HistoriaClinicaComponent implements OnInit {
     const color = 'info';
     $.notify({
       icon: "notifications",
-      message: "La historia clinica ha sido creada con éxito"
+      message: "La historia clinica ha sido actualizada con éxito"
 
     }, {
       type: color,

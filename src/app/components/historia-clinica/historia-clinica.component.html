@@ -9,7 +9,7 @@
                         <p class="card-category">Paciente: {{paciente.nombres}}</p>
                     </div>
                     <div class="card-body">
-                        <form [formGroup]="historiaForm" (ngSubmit)="guardarHistoria()">
+                        <form [formGroup]="historiaForm" (ngSubmit)="guardar()">
                           <input type="hidden" formControlName="codigo" value= "{{historia.codigo}}">
                             <div class="row">
                                 <input type="hidden" name="codPaciente" formControlName="codPaciente" matInput class="form-control">
