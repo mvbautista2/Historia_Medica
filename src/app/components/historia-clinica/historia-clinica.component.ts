@@ -4,7 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { HistoriaClinicaService } from 'app/services/historiaClinica/historia-clinica.service';
 import { RepresentanteComponent } from '../representante/representante.component';
+import { EditarRepresentanteComponent } from '../editar-representante/editar-representante.component';
 import { PacienteService } from 'app/services/paciente/paciente.service';
+import { RepresentanteService } from 'app/services/representante/representante.service';
 import { Router } from '@angular/router';
 import { ConsultaComponent } from '../consulta/consulta.component';
 import { ConsultaService } from '../../services/consulta/consulta.service';
@@ -36,6 +38,7 @@ export class HistoriaClinicaComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     public pacienteService: PacienteService,
+    public representanteService: RepresentanteService,
     public fb: FormBuilder,
     public historiaClinicaService: HistoriaClinicaService,
     public consultaService: ConsultaService,
@@ -53,10 +56,9 @@ export class HistoriaClinicaComponent implements OnInit {
       observacion: ['',],
       fechaCreacion: [''],
     });;
-
-    this.editarHistoria();
     this.obtenerCodigo();
 
+    this.editarHistoria();
   }
 
   listarConsulta() {
@@ -107,7 +109,7 @@ export class HistoriaClinicaComponent implements OnInit {
     )
   }
 
-  representante() {
+  representanteAgregar() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
@@ -115,6 +117,23 @@ export class HistoriaClinicaComponent implements OnInit {
     this.dialog.open(RepresentanteComponent, dialogConfig);
   }
 
+  representateEditar() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    this.dialog.open(EditarRepresentanteComponent, dialogConfig);
+  }
+
+  buscarRepresentante(): void {
+    let codigo = localStorage.getItem("codigo");
+    this.representanteService.obtenerRepresentantePorCodPaciente(codigo).subscribe(data => {
+      console.log(data);
+      this.representateEditar();
+    },
+      error=>this.representanteAgregar()
+    );
+  }
 
   showNotification(from, align) {
 
@@ -154,6 +173,9 @@ export class HistoriaClinicaComponent implements OnInit {
   verConsulta(item) {
     localStorage.setItem("item", item.codigo.toString());
     this.router.navigate(['consulta-completa']);
+  }
+  verHistorial(item) {
+
   }
   agregarEnfermedades(item) {
     localStorage.setItem("item", item.codigo.toString());

@@ -16,6 +16,7 @@ import { ConsultaExamenComponent } from './consulta-examen/consulta-examen.compo
 import { TratamientoComponent } from './tratamiento/tratamiento.component';
 import { ConsultaCompletaComponent } from './consulta-completa/consulta-completa.component';
 import { ListadoTratamientosComponent } from './listado-tratamientos/listado-tratamientos.component';
+import { EditarRepresentanteComponent } from './editar-representante/editar-representante.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { ListadoTratamientosComponent } from './listado-tratamientos/listado-tra
     TratamientoComponent,
     ConsultaCompletaComponent,
     ListadoTratamientosComponent,
+    EditarRepresentanteComponent,
   ],
   exports: [
     FooterComponent,

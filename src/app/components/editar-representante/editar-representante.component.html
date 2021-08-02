@@ -4,22 +4,22 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Agregar representante</h4>
+              <h4 class="card-title">Modificar datos representante</h4>
               <p class="card-category">Complete los campos</p>
             </div>
             <div class="card-body">
-              <form [formGroup]="representanteForm" (ngSubmit)="guardar()">
-  
+              <form [formGroup]="representanteEditarForm" (ngSubmit)="guardar()">
+                <input type="hidden" value="{{representante.codigo}}" >
                 <div class="row">
+                  <input type="hidden" name="codigoPaciente" formControlName="codigoPaciente" matInput class="form-control">
                   <div class="col-md-6">
-                    <input matInput type="hidden" formControlName="codigoPaciente" class="form-control">
                     <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Nombres" type="text" formControlName="nombres" class="form-control">
+                      <input matInput style="text-transform:uppercase;" placeholder="Nombres" type="text" formControlName="nombres" class="form-control">
                     </mat-form-field>
                   </div>
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Apellidos" type="text" formControlName="apellidos" class="form-control">
+                      <input matInput style="text-transform:uppercase;" placeholder="Apellidos" type="text" formControlName="apellidos" class="form-control">
                     </mat-form-field>
                   </div>
                 </div>
