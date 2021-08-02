@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         <form [formGroup]="historiaForm" (ngSubmit)="guardarHistoria()">
-                          <input type="hidden" formControlName="codigo" value= "{{historia.codigo}}">
+                          <input type="hidden" formControlName="codigo" name ="codigo" id= "codigo" value= "{{historia.codigo}}">
                             <div class="row">
                                 <input type="hidden" name="codPaciente" formControlName="codPaciente" matInput class="form-control">
                                         
@@ -46,6 +46,7 @@
 
                             </div>
                             <button mat-raised-button type="submit" class="btn btn-primary pull-right">Editar</button>
+                            <button mat-raised-button type="submit" (click)="agregarConsulta(historia)" class="btn btn-primary pull-left">Agregar Consulta</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -70,24 +71,24 @@
             </div>
         </div>
     </div>
-    <div class="fixed-plugin">
-        <div class="dropdown show-dropdown open show">
-            <a class="material-icons" style="font-size: 50px; color:azure" href="#" data-toggle="dropdown"
-                aria-expanded="true">
-                add
-            </a>
-            <ul class="dropdown-menu show" x-placement="bottom-start" style="position: absolute;">
+</div>
+<div class="fixed-plugin">
+  <div class="dropdown show-dropdown open show">
+      <a class="material-icons" style="font-size: 50px; color:azure" href="#" data-toggle="dropdown"
+          aria-expanded="true">
+          add
+      </a>
+      <ul class="dropdown-menu show" x-placement="bottom-start"
+          style="position: absolute; top: 41px; left: -231px; will-change: top, left;">
 
-                <li class="button-container">
-                    <div>
-                        <button *ngFor="let menuItem of menuItems" routerLinkActive="active"
-                            [routerLink]="[menuItem.path]" class="btn btn-info btn-block btn-fill" data-toggle="modal">
-                            Agregar Consulta
-                        </button>
-                    </div>
-                </li>
+          <li class="button-container">
+              <div>
+                  <button (click)="agregarConsulta(historia)" class="btn btn-info btn-block btn-fill" data-toggle="modal">
+                      Agregar Consulta
+                  </button>
+              </div>
+          </li>
 
-            </ul>
-        </div>
-    </div>
+      </ul>
+  </div>
 </div>

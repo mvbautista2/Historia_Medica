@@ -15,6 +15,7 @@ import { HistoriaClinicaComponent } from '../historia-clinica/historia-clinica.c
 import { MatDialogModule } from '@angular/material/dialog';
 import { RepresentanteComponent } from '../representante/representante.component';
 import { EditarPacienteComponent } from '../editar-paciente/editar-paciente.component';
+import { ConsultaComponent } from '../consulta/consulta.component';
 
 @NgModule({
   imports: [
@@ -35,12 +36,13 @@ import { EditarPacienteComponent } from '../editar-paciente/editar-paciente.comp
     TableListComponent, 
     HistoriaClinicaComponent,
     RepresentanteComponent,    
-    EditarPacienteComponent,
+    EditarPacienteComponent,    
+    ConsultaComponent,
   ],
   exports:[
     MatDialogModule,
   ],
-  entryComponents:[EditarPacienteComponent]
+  entryComponents:[EditarPacienteComponent, HistoriaClinicaComponent]
 
 })
 

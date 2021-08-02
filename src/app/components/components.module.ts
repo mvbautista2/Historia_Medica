@@ -27,7 +27,6 @@ import { TratamientoComponent } from './tratamiento/tratamiento.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    ConsultaComponent,
     ListarHistoriaClinicaComponent,
     ConsultaEnfermedadComponent,
     ConsultaExamenComponent,

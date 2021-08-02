@@ -20,6 +20,9 @@ export class ConsultaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    let codigo = localStorage.getItem("codigo");
+
     this.consultaForm = this.fb.group({
       
       codigoHistoriaClinica:[''],

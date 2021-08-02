@@ -6,13 +6,14 @@ import { HistoriaClinicaService } from 'app/services/historiaClinica/historia-cl
 import { RepresentanteComponent } from '../representante/representante.component';
 import { PacienteService } from 'app/services/paciente/paciente.service';
 import { Router } from '@angular/router';
+import { ConsultaComponent } from '../consulta/consulta.component';
 
 declare var $: any;
 declare interface RouteInfo {
   path: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/consulta', },
+  { path: '/consulta' },
 ];
 
 @Component({
@@ -35,6 +36,7 @@ export class HistoriaClinicaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.historiaForm = this.fb.group({
       codigo:[''],
       codPaciente:[''],
@@ -120,6 +122,15 @@ export class HistoriaClinicaComponent implements OnInit {
         '<a href="{3}" target="{4}" data-notify="url"></a>' +
         '</div>'
     });
+  }
+  agregarConsulta(historia){
+    localStorage.setItem("codigo", historia.codigo.toString());
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    this.dialog.open(ConsultaComponent, dialogConfig);
+
   }
 
 }
