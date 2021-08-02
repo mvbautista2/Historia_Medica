@@ -24,7 +24,7 @@ export class ConsultaExamenComponent implements OnInit {
     this.consultaExamenForm = this.fb.group({
       
       codigoConsulta:[''],
-      codigoExamenMedico:[''],
+      codigoExamen:[''],
       motivo:['', Validators.required],
       fechaExamen:['', Validators.required],
       urlResultadoInforme:[''],
@@ -52,7 +52,7 @@ export class ConsultaExamenComponent implements OnInit {
     this.consultaExamenForm.setValue({
 
       codigoConsulta:item,
-      codigoExamenMedico:'',
+      codigoExamen:'',
       motivo:'',
       fechaExamen:'',
       urlResultadoInforme:'',

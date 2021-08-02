@@ -30,5 +30,9 @@ export class PacienteService {
   }
   public modificarPaciente(paciente:any):Observable<any>{
     return this.httpClient.put(this.API_SERVER, paciente);
-  }
+    }
+    
+    public buscarPorApellido(nombres: any): Observable<any>{
+    return this.httpClient.get(this.API_SERVER, nombres);
+    }
 }
