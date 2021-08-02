@@ -17,5 +17,9 @@ export class ConsultaService {
   }
   public modificarConsulta(consulta:any):Observable<any>{
     return this.httpClient.put(this.API_SERVER + consulta.codigo, consulta)
-  }
+    }
+      
+    public listarPorCodigoHistoria(codigoHistoria:any): Observable<any>{
+    return this.httpClient.get(this.API_SERVER+"historia"+codigoHistoria);
+  } 
 }

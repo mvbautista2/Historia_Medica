@@ -7,6 +7,7 @@ import { RepresentanteComponent } from '../representante/representante.component
 import { PacienteService } from 'app/services/paciente/paciente.service';
 import { Router } from '@angular/router';
 import { ConsultaComponent } from '../consulta/consulta.component';
+import { ConsultaService } from '../../services/consulta/consulta.service';
 
 declare var $: any;
 declare interface RouteInfo {
@@ -28,11 +29,13 @@ export class HistoriaClinicaComponent implements OnInit {
   historia: any;
   codigoPaciente: any;
   menuItems: any[];
+    consultas: any;
   constructor(
     private dialog: MatDialog,
     public pacienteService: PacienteService,
     public fb: FormBuilder,
-    public historiaClinicaService: HistoriaClinicaService,
+      public historiaClinicaService: HistoriaClinicaService,
+    public consultaService: ConsultaService,
   ) { }
 
   ngOnInit(): void {
@@ -50,7 +53,17 @@ export class HistoriaClinicaComponent implements OnInit {
     this.editarHistoria();
     this.obtenerCodigo();
     
-  }
+    }
+    
+    listarConsulta() {
+         this.consultaService.listarPorCodigoHistoria(this.historia.codigo).subscribe(resp => {
+             this.consultas = resp;
+             console.log(resp);
+        },
+        error => { console.error(error) }
+
+        );
+    }
 
   obtenerCodigo() {
     let codigo = localStorage.getItem("codigo");
@@ -64,7 +77,8 @@ export class HistoriaClinicaComponent implements OnInit {
   editarHistoria() {
     let codigo = localStorage.getItem("codigo");
     this.historiaClinicaService.obtenerHistoriaPorCodPaciente(+codigo).subscribe(data => {
-      this.historia = data;
+        this.historia = data;
+        this.consultas=this.historia.consultas;
       this.historiaForm.setValue({
         codigo: this.historia.codigo,
         codPaciente: this.historia.codPaciente,
@@ -72,7 +86,7 @@ export class HistoriaClinicaComponent implements OnInit {
         pesoNacimiento: this.historia.pesoNacimiento,
         antecedentes: this.historia.antecedentes,
         observacion: this.historia.observacion,
-        fechaCreacion:this.historia.fechaCreacion,
+          fechaCreacion: this.historia.fechaCreacion,
       })
     })
   }
