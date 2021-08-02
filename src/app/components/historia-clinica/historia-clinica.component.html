@@ -6,34 +6,42 @@
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">Historia Clinica</h4>
                         <p class="card-category">Información Médica del Paciente</p>
-                        <p class="card-category">Hola {{paciente.nombres}}</p>
+                        <p class="card-category">Paciente: {{paciente.nombres}}</p>
                     </div>
                     <div class="card-body">
-                        <form [formGroup]="historiaForm" (ngSubmit)="guardar()">
+                        <form [formGroup]="historiaForm" (ngSubmit)="guardarHistoria()">
                             <div class="row">
+                                <input type="text" name="codPaciente" formControlName="codPaciente" matInput
+                                        required>
                                 <div class="col-md-3">
-                                  <mat-form-field class="example-full-width">
-                                      <input type="number" value="{{historia.alturaNacimiento}}"  formControlName="altura" matInput placeholder="Altura de nacimiento(cm)" >
+                                    <mat-form-field class="example-full-width">
+                                        <input type="number" 
+                                            formControlName="alturaNacimiento" matInput placeholder="Altura de nacimiento(cm)"
+                                            required>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                      <input type="number" value="{{historia.pesoNacimiento}}" step="0.01" matInput placeholder="Peso de nacimiento(kg)">
+                                        <input type="number" step="0.01" matInput
+                                            formControlName="pesoNacimiento" placeholder="Peso de nacimiento(kg)" required>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                      <textarea matInput value="{{historia.antecedentes}}" placeholder="Antecedentes" ></textarea> 
+                                        <textarea matInput name="antecedentes" formControlName="antecedentes" placeholder="Antecedentes"
+                                            required></textarea>
                                     </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                  <mat-form-field class="example-full-width">
-                                    <textarea matInput value="{{historia.observacion}}" formControlName="observacion" placeholder="Observaciones" ></textarea> 
-                                  </mat-form-field>
+                                    <mat-form-field class="example-full-width">
+                                        <textarea matInput name="antecedentes"
+                                            formControlName="observacion" placeholder="Observaciones"
+                                            required></textarea>
+                                    </mat-form-field>
                                 </div>
-                                
+
                             </div>
                             <button mat-raised-button type="submit" class="btn btn-primary pull-right">Editar</button>
                             <div class="clearfix"></div>
@@ -52,7 +60,7 @@
                         <h6 class="card-category text-gray"></h6>
                         <h4 class="card-title">Nombre</h4>
                         <p class="card-description">
-                            
+
                         </p>
                         <a (click)="representante()" class="btn btn-info btn-round">Representante del Paciente</a>
                     </div>
@@ -61,25 +69,23 @@
         </div>
     </div>
     <div class="fixed-plugin">
-      <div class="dropdown show-dropdown open show">
-          <a class="material-icons" style="font-size: 50px; color:azure" href="#" data-toggle="dropdown"
-              aria-expanded="true">
-              add
-          </a>
-          <ul class="dropdown-menu show" x-placement="bottom-start"
-              style="position: absolute;">
-  
-              <li class="button-container"> 
-                  <div>
-                      <button *ngFor="let menuItem of menuItems" routerLinkActive="active" [routerLink]="[menuItem.path]"
-                          class="btn btn-info btn-block btn-fill" data-toggle="modal">
-                          Agregar Consulta
-                      </button>
-                  </div>
-              </li>
-  
-          </ul>
-      </div>
-  </div>
-  </div>
-  
+        <div class="dropdown show-dropdown open show">
+            <a class="material-icons" style="font-size: 50px; color:azure" href="#" data-toggle="dropdown"
+                aria-expanded="true">
+                add
+            </a>
+            <ul class="dropdown-menu show" x-placement="bottom-start" style="position: absolute;">
+
+                <li class="button-container">
+                    <div>
+                        <button *ngFor="let menuItem of menuItems" routerLinkActive="active"
+                            [routerLink]="[menuItem.path]" class="btn btn-info btn-block btn-fill" data-toggle="modal">
+                            Agregar Consulta
+                        </button>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
