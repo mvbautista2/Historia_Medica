@@ -9,12 +9,22 @@
               <p class="card-category">Complete los campos</p>
             </div>
             <div class="card-body">
-              <form >
-  
+              <form [formGroup]="consultaForm" (ngSubmit)="guardar()" >
+                <input type="hidden" value="{{historiaClinica.codigo}" formControlName="codigoHistoriaClinica">
                 <div class="row">
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <mat-form-field class="example-full-width">
-                      <input  matInput placeholder="Medico*" type="text" formControlName="codigoMedico" class="form-control">
+                        <mat-label>Médico</mat-label>
+                        <mat-select matInput placeholder="Medico*"  name="codigoMedico" id="codigoMedico" formControlName="codigoMedico"
+                        class="form-control">
+                          <mat-option value="{{item.codigo}}" *ngFor="let item of medicos">{{item.apellidos}} {{item.nombres}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                      <input   matInput placeholder="Fecha de consulta" type="datetime-local" formControlName="fechaConsulta"
+                        class="form-control">
                     </mat-form-field>
                   </div>
                   </div>
@@ -50,6 +60,7 @@
                 <button mat-raised-button type="submit" class="btn btn-primary pull-right">Guardar</button>
                 <div class="clearfix"></div>
               </form>
+             
             </div>
           </div>
         </div>

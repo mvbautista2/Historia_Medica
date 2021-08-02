@@ -10,26 +10,27 @@
                     </div>
                     <div class="card-body">
                         <form [formGroup]="historiaForm" (ngSubmit)="guardarHistoria()">
+                          <input type="hidden" formControlName="codigo" value= "{{historia.codigo}}">
                             <div class="row">
-                                <input type="text" name="codPaciente" formControlName="codPaciente" matInput
-                                        required>
+                                <input type="hidden" name="codPaciente" formControlName="codPaciente" matInput class="form-control">
+                                        
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
                                         <input type="number" 
                                             formControlName="alturaNacimiento" matInput placeholder="Altura de nacimiento(cm)"
-                                            required>
+                                            class="form-control">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
                                         <input type="number" step="0.01" matInput
-                                            formControlName="pesoNacimiento" placeholder="Peso de nacimiento(kg)" required>
+                                            formControlName="pesoNacimiento" placeholder="Peso de nacimiento(kg)" class="form-control">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
                                         <textarea matInput name="antecedentes" formControlName="antecedentes" placeholder="Antecedentes"
-                                            required></textarea>
+                                        class="form-control"></textarea>
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -38,9 +39,10 @@
                                     <mat-form-field class="example-full-width">
                                         <textarea matInput name="antecedentes"
                                             formControlName="observacion" placeholder="Observaciones"
-                                            required></textarea>
+                                            class="form-control"></textarea>
                                     </mat-form-field>
                                 </div>
+                                <input type="hidden" formControlName="fechaCreacion" class="form-control">
 
                             </div>
                             <button mat-raised-button type="submit" class="btn btn-primary pull-right">Editar</button>

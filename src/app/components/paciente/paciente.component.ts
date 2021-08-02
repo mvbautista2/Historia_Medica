@@ -29,11 +29,10 @@ export class PacienteComponent implements OnInit {
     
   ) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {    
     
     this.pacienteForm = this.fb.group({
-      codigo:[''],
+      
       tipoIdentificacion: ['',Validators.required],
       identificacion: ['',Validators.pattern("^[0-9]*$")],
       seguroSocial: ['', Validators.required],
@@ -50,6 +49,7 @@ export class PacienteComponent implements OnInit {
       let identificacion = this.pacienteForm.get("identificacion");
       switch(valor){
         case "NIN":
+          identificacion.reset();
           identificacion.disable();
         break;
         case "CED":

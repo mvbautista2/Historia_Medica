@@ -35,16 +35,19 @@ export class HistoriaClinicaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.historiaForm = this.fb.group({
-      codPaciente: ['', Validators.required],
-      alturaNacimiento: ['',],
+      codigo:[''],
+      codPaciente:[''],
+      alturaNacimiento: [''],
       pesoNacimiento: ['',],
-      Antecedentes: ['',],
-      Observaciones: ['',],
-    });
-    this.obtenerCodigo();
+      antecedentes: ['', ],
+      observacion: ['',],
+      fechaCreacion: [''],
+    });;
+
     this.editarHistorial();
+    this.obtenerCodigo();
+    
   }
 
   obtenerCodigo() {
@@ -52,18 +55,22 @@ export class HistoriaClinicaComponent implements OnInit {
     this.codigoPaciente = codigo;
     this.pacienteService.obtenerPorCodigo(codigo).subscribe(resp => {
       this.paciente = resp;
+
     })
   }
 
   editarHistorial() {
-    this.historiaClinicaService.obtenerHistoriaPorCodPaciente(this.codigoPaciente).subscribe(resp => {
-      this.historia = resp;
+    let codigo = localStorage.getItem("codigo");
+    this.historiaClinicaService.obtenerHistoriaPorCodPaciente(+codigo).subscribe(data => {
+      this.historia = data;
       this.historiaForm.setValue({
-        codPaciente: this.historia.codigo,
+        codigo: this.historia.codigo,
+        codPaciente: this.historia.codPaciente,
         alturaNacimiento: this.historia.alturaNacimiento,
         pesoNacimiento: this.historia.pesoNacimiento,
         antecedentes: this.historia.antecedentes,
         observacion: this.historia.observacion,
+        fechaCreacion:this.historia.fechaCreacion,
       })
     })
   }

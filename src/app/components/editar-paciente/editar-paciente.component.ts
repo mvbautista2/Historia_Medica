@@ -57,7 +57,22 @@ export class EditarPacienteComponent implements OnInit {
       tipoSangre: this.paciente.tipoSangre,
     })      
 
-    })
+    });
+    this.editarPacienteForm.get("tipoIdentificacion").valueChanges.subscribe(valor=>{
+      let identificacion = this.editarPacienteForm.get("identificacion");
+      switch(valor){
+        case "NIN":
+          identificacion.reset();
+          identificacion.disable();
+        break;
+        case "CED":
+          identificacion.enable();
+        break;
+        case "PAS":
+          identificacion.enable();
+        break;
+      }   
+    });
    
   }
   
