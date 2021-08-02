@@ -124,7 +124,7 @@ export class HistoriaClinicaComponent implements OnInit {
     });
   }
   agregarConsulta(historia){
-    localStorage.setItem("codigo", historia.codigo.toString());
+    localStorage.setItem("historia", historia.codigo.toString());   
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;

@@ -21,8 +21,8 @@ export class ConsultaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let codigo = localStorage.getItem("codigo");
-
+    
+    //alert(historia);
     this.consultaForm = this.fb.group({
       
       codigoHistoriaClinica:[''],
@@ -41,6 +41,7 @@ export class ConsultaComponent implements OnInit {
     },
     error=>{console.error(error)}
     );
+    this.editar();
 
 
   }
@@ -52,6 +53,24 @@ export class ConsultaComponent implements OnInit {
     )
 
   }
+  editar(){
+    let historia = localStorage.getItem("historia");
+    this.consultaForm.setValue({
+      
+      codigoHistoriaClinica: historia,
+      codigoMedico:'',
+      fechaConsulta:'',
+      altura:'',
+      peso:'',
+      temperatura:'',
+      presionSistolica:'',
+      presionDiastolica:'',
+
+
+
+    });
+  }
+
 
 
 }

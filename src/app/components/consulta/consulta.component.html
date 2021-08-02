@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
               <form [formGroup]="consultaForm" (ngSubmit)="guardar()" >
-                <input type="hidden" value="{{historiaClinica.codigo}" formControlName="codigoHistoriaClinica">
+                <input type="hidden"  formControlName="codigoHistoriaClinica">
                 <div class="row">
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
