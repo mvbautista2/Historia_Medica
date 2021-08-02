@@ -41,14 +41,12 @@ export class PacienteComponent implements OnInit {
       genero: ['', Validators.required],
       fechaNacimiento: ['', Validators.required],
       direccion: [''],
-      telefono: ['',Validators.pattern("^[0-9]*$")],
+      telefono: [''],
       nacionalidad: ['', Validators.required],
       tipoSangre: ['', Validators.required],
     });; 
     this.pacienteForm.get("tipoIdentificacion").valueChanges.subscribe(valor=>{
       let identificacion = this.pacienteForm.get("identificacion");
-      console.log(valor);
-      alert(valor);
       switch(valor){
         case "NIN":
           identificacion.reset();
@@ -137,8 +135,5 @@ validadorDeCedula(cedula: String) {
   }
 this.validador= cedulaCorrecta;
 
-}
-cambiarEstado(){
-  
 }
 }
