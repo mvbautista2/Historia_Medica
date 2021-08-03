@@ -70,5 +70,7 @@ export class ConsultaCompletaComponent implements OnInit {
     this.router.navigate(['listado-tratamientos']);
   }
   
+  
+  
 
 }

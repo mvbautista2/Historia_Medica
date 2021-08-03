@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ConsultaExamenService } from 'app/services/consultaExamen/consulta-examen.service';
 import { ExamenMedicoService } from 'app/services/examenMedico/examen-medico.service';
 declare var $: any;
@@ -18,6 +19,7 @@ export class ConsultaExamenComponent implements OnInit {
     public consultaExamenService : ConsultaExamenService,
     public examenMedicoService: ExamenMedicoService,
     public fb: FormBuilder,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
@@ -41,8 +43,8 @@ export class ConsultaExamenComponent implements OnInit {
   }
   guardarConsultaExamen():void{
     this.consultaExamenService.crearConsultaExamen(this.consultaExamenForm.value).subscribe(resp=>{
-      this.consultaExamenForm.reset();
-      this.showNotification('top','center');
+      this.showNotification('top','center');      
+      this.router.navigate(['historia-clinica']);
     },
     error=>{console.error(error)}
     )

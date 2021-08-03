@@ -21,20 +21,20 @@
                                 <div class="row">
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input type="number" matInput formControlName="altura" placeholder="Altura"
+                                        <input type="number" matInput formControlName="altura" placeholder="Altura(cm)"
                                             class="form-control">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
                                         <input type="number" scale="0.01" matInput formControlName="peso"
-                                            placeholder="Peso" class="form-control">
+                                            placeholder="Peso(kg)" class="form-control">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
                                         <input type="number" scale="0.01" matInput name="temperatura"
-                                            formControlName="temperatura" placeholder="Temperatura"
+                                            formControlName="temperatura" placeholder="Temperatura(°C)"
                                             class="form-control">
                                     </mat-form-field>
                                 </div>
@@ -48,13 +48,13 @@
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
                                         <input matInput name="presionSistolica" formControlName="presionSistolica"
-                                            placeholder="Presion Sistólica" class="form-control">
+                                            placeholder="Presion Sistólica(mm/hg)" class="form-control">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
                                         <input matInput name="presionDiastolica" formControlName="presionDiastolica"
-                                            placeholder="Presión Diastólica" class="form-control">
+                                            placeholder="Presión Diastólica(mm/hg)" class="form-control">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -140,9 +140,7 @@
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead class=" text-primary">
-                        <th>
-                            Examen
-                        </th>
+                        
                         <th>
                             Motivo
                         </th>
@@ -160,9 +158,7 @@
                     <tbody>
 
                         <tr *ngFor="let item2 of examenes">
-                            <td>
-                                {{item2.codigo}}
-                            </td>
+                            
                             <td>
                                 {{item2.motivo}}
                             </td>
