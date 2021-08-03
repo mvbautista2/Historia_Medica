@@ -36,21 +36,9 @@ export class EditarRepresentanteComponent implements OnInit {
       telefono: ['', Validators.required],
       parentesco: ['', Validators.required],
 
-    });;
-
-    this.obtenerCodigo();
+    });
     this.editarRepresentante();
     
-  }
-
-
-  obtenerCodigo() {
-    let codigo = localStorage.getItem("codigo");
-    this.codPaciente = codigo;
-    this.pacienteService.obtenerPorCodigo(codigo).subscribe(resp => {
-      this.paciente = resp;
-
-    })
   }
 
   editarRepresentante() {

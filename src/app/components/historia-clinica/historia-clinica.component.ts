@@ -34,7 +34,8 @@ export class HistoriaClinicaComponent implements OnInit {
   codigoPaciente: any;
   menuItems: any[];
   consultas: any;
-
+  
+  
   constructor(
     private dialog: MatDialog,
     public pacienteService: PacienteService,
@@ -45,7 +46,9 @@ export class HistoriaClinicaComponent implements OnInit {
     private router: Router,
   ) { }
 
+  
   ngOnInit(): void {
+    
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.historiaForm = this.fb.group({
       codigo: [''],
@@ -57,7 +60,7 @@ export class HistoriaClinicaComponent implements OnInit {
       fechaCreacion: [''],
     });;
     this.obtenerCodigo();
-
+    //localStorage.clear()
     this.editarHistoria();
   }
 

@@ -67,7 +67,7 @@ export class PacienteComponent implements OnInit {
     this.pacienteService.crearPaciente(this.pacienteForm.value).subscribe(resp=>{
       this.pacienteForm.reset();
       this.showNotification('top','center');
-      this.router.navigate(['historia-clinica']);
+      this.router.navigate(['table-list']);
       
     },
     error=>{

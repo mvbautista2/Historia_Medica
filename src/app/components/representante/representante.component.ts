@@ -39,20 +39,9 @@ export class RepresentanteComponent implements OnInit {
       telefono: ['', Validators.required],
       parentesco: ['', Validators.required],
 
-    });;
-
-    this.obtenerCodigo();
+    });
     this.datosRepresentante();
     
-  }
-
-  obtenerCodigo() {
-    let codigo = localStorage.getItem("codigo");
-    this.codPaciente = codigo;
-    this.pacienteService.obtenerPorCodigo(codigo).subscribe(resp => {
-      this.paciente = resp;
-
-    })
   }
   guardar(): void {
     this.representanteService.crearRepresentante(this.representanteForm.value).subscribe(resp => {
