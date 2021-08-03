@@ -49,6 +49,7 @@ export class HistoriaClinicaComponent implements OnInit {
   
   ngOnInit(): void {
     
+    
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.historiaForm = this.fb.group({
       codigo: [''],

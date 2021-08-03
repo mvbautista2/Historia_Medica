@@ -44,7 +44,7 @@ export class ConsultaExamenComponent implements OnInit {
   guardarConsultaExamen():void{
     this.consultaExamenService.crearConsultaExamen(this.consultaExamenForm.value).subscribe(resp=>{
       this.showNotification('top','center');      
-      this.router.navigate(['historia-clinica']);
+      this.router.navigate(['consulta-completa']);
     },
     error=>{console.error(error)}
     )

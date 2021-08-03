@@ -33,6 +33,7 @@ export class TableListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    localStorage.clear();
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.pacienteService.listarTodos().subscribe(resp => {
     this.pacientes = resp;

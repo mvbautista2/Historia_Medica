@@ -43,7 +43,7 @@ export class ConsultaEnfermedadComponent implements OnInit {
   guardarConsultaEnfermedad():void{
     this.consultaEnfermedadService.crearConsultaEnfermedad(this.consultaEnfermedadForm.value).subscribe(resp=>{
       this.showNotification('top','center');
-      this.router.navigate(['historia-clinica']);
+      this.router.navigate(['consulta-completa']);
     },
     error=>{console.error(error)
     this.showNotificationError('top','center')}
