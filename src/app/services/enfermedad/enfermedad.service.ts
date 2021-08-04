@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EnfermedadService {
 
-  private API_SERVER = "http://localhost:8090/api/enfermedad/";
+  private API_SERVER = "http://35.199.125.143:8090/api/enfermedad/";
 
   constructor(private httpClient: HttpClient) { }
   

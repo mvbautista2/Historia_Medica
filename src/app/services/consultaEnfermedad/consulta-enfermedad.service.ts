@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ConsultaEnfermedadService {
-  private API_SERVER = "http://localhost:8090/api/consultaEnfermedad/";
+  private API_SERVER = "http://35.199.125.143:8090/api/consultaEnfermedad/";
 
   constructor(private httpClient: HttpClient) {}
   public crearConsultaEnfermedad(consultaEnfermedad:any):Observable<any>{

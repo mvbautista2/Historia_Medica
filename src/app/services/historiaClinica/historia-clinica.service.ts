@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HistoriaClinicaService {
-  private API_SERVER = "http://localhost:8090/api/historiaClinica/";
+  private API_SERVER = "http://35.199.125.143:8090/api/historiaClinica/";
 
   constructor(private httpClient: HttpClient) { }
   

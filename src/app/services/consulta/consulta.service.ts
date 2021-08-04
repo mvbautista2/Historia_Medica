@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ConsultaService {
 
-  private API_SERVER = "http://localhost:8090/api/consulta/";
+  private API_SERVER = "http://35.199.125.143:8090/api/consulta/";
 
   constructor(private httpClient: HttpClient) { }
 
