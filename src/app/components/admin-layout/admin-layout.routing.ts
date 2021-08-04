@@ -8,6 +8,7 @@ import {ConsultaComponent} from '../consulta/consulta.component';
 import { ConsultaEnfermedadComponent } from '../consulta-enfermedad/consulta-enfermedad.component';
 import { ConsultaCompletaComponent } from '../consulta-completa/consulta-completa.component';
 import { ListadoTratamientosComponent } from '../listado-tratamientos/listado-tratamientos.component';
+import { ConsultaExamenComponent } from '../consulta-examen/consulta-examen.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -61,4 +62,5 @@ export const AdminLayoutRoutes: Routes = [
     {path:'consulta-enfermedad', component:ConsultaEnfermedadComponent},
     {path:'consulta-completa',component:ConsultaCompletaComponent},
     {path:'listado-tratamientos',component:ListadoTratamientosComponent},
+    {path:'consulta-examen',component:ConsultaExamenComponent},
 ];

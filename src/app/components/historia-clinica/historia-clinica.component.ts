@@ -12,6 +12,7 @@ import { ConsultaComponent } from '../consulta/consulta.component';
 import { ConsultaService } from '../../services/consulta/consulta.service';
 import { isNgTemplate } from '@angular/compiler';
 import { ConsultaExamenComponent } from '../consulta-examen/consulta-examen.component';
+import { ConsultaEnfermedadComponent } from '../consulta-enfermedad/consulta-enfermedad.component';
 
 declare var $: any;
 declare interface RouteInfo {
@@ -204,18 +205,22 @@ export class HistoriaClinicaComponent implements OnInit {
 
   }
   verConsulta(item) {
-    localStorage.setItem("item", item.codigo.toString());
+    localStorage.setItem("codConsulta", item.codigo.toString());
     this.router.navigate(['consulta-completa']);
   }
   verHistorial(item) {
 
   }
   agregarEnfermedades(item) {
-    localStorage.setItem("item", item.codigo.toString());
-    this.router.navigate(['consulta-enfermedad']);
+    localStorage.setItem("codConsulta", item.codigo.toString());
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    this.dialog.open(ConsultaEnfermedadComponent, dialogConfig);
   }
   agregarExamenes(item) {
-    localStorage.setItem("item", item.codigo.toString());
+    localStorage.setItem("codConsulta", item.codigo.toString());
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;

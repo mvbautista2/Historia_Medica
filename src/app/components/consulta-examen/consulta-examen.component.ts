@@ -50,7 +50,7 @@ export class ConsultaExamenComponent implements OnInit {
     )
   }
   editar(){
-    let item = localStorage.getItem("item");
+    let item = localStorage.getItem("codConsulta");
     this.consultaExamenForm.setValue({
 
       codigoConsulta:item,
