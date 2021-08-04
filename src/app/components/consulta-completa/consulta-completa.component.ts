@@ -4,7 +4,14 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConsultaService } from 'app/services/consulta/consulta.service';
 import { TratamientoComponent } from '../tratamiento/tratamiento.component';
-
+declare interface RouteInfo {
+  path: string;
+  title: string;
+}
+export const ROUTES: RouteInfo[] = [
+  { path: '/consulta-enfermedad', title: 'Agregar Enfermedad' },
+  { path: '/consulta-examen', title: 'Agregar Examen'},
+];
 @Component({
   selector: 'consulta-completa',
   templateUrl: './consulta-completa.component.html',
@@ -15,6 +22,7 @@ export class ConsultaCompletaComponent implements OnInit {
   enfermedades:any;
   consultas:any;
   consultaForm: FormGroup;
+  menuItems: any[];
 
   constructor(
     public fb: FormBuilder,
@@ -24,6 +32,7 @@ export class ConsultaCompletaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.consultaForm = this.fb.group({
       codigo:[''],
       codigoMedico:[''],
@@ -39,7 +48,7 @@ export class ConsultaCompletaComponent implements OnInit {
 
   }
   mostrar(){
-    let item = localStorage.getItem("item");
+    let item = localStorage.getItem("codConsulta");
     this.consultaService.obtenerPorCodigo(+item).subscribe(resp=>{
       this.consultas = resp;
       this.enfermedades = this.consultas.consultaEnfermedad;

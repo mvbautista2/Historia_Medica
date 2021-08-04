@@ -50,7 +50,7 @@ export class ConsultaEnfermedadComponent implements OnInit {
     )
   }
   editar(){
-    let item = localStorage.getItem("item");
+    let item = localStorage.getItem("codConsulta");
     this.consultaEnfermedadForm.setValue({
       
       codigoConsulta: item,
