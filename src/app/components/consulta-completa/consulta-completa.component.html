@@ -41,7 +41,7 @@
                             
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput name="imc" formControlName="imc" placeholder="IMC"
+                                        <input matInput name="imc" scale="0.01" formControlName="imc" placeholder="IMC"
                                             class="form-control">
                                     </mat-form-field>
                                 </div>
@@ -140,6 +140,9 @@
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead class=" text-primary">
+                        <th>
+                            Examen
+                        </th>
                         
                         <th>
                             Motivo
@@ -159,6 +162,9 @@
 
                         <tr *ngFor="let item2 of examenes">
                             
+                            <td>
+                                {{item2.examenMedico.nombre}}
+                            </td>
                             <td>
                                 {{item2.motivo}}
                             </td>
