@@ -16,7 +16,7 @@ export class ConsultaService {
     return this.httpClient.post(this.API_SERVER,consulta);
   }
   public modificarConsulta(consulta:any):Observable<any>{
-    return this.httpClient.put(this.API_SERVER + consulta.codigo, consulta)
+    return this.httpClient.put(this.API_SERVER, consulta);
     }
       
     public listarPorCodigoHistoria(codigoHistoria:any): Observable<any>{

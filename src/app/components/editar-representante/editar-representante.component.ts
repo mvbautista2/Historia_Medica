@@ -104,7 +104,7 @@ export class EditarRepresentanteComponent implements OnInit {
     const color = 'info';
     $.notify({
       icon: "notifications",
-      message: "El representante del paciente no se pudo modificar"
+      message: "El representante del paciente ha sido modificado con éxito"
 
     }, {
       type: color,

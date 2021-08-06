@@ -99,7 +99,9 @@ export class HistoriaClinicaComponent implements OnInit {
         observacion: this.historia.observacion,
         fechaCreacion: this.historia.fechaCreacion,
       })
+      localStorage.setItem("codigoHistoriaClinica", this.historia.codigo);
     })
+    
     
   }
 

@@ -8,12 +8,16 @@
                         <p class="card-category"></p>
                     </div>
                     <div class="card-body">
-                        <form [formGroup]="consultaForm">
+                        <form [formGroup]="consultaForm" (ngSubmit)="guardar()">
                             <input type="hidden" formControlName="codigo">
+                            <input type="hidden" formControlName="codigoHistoriaClinica">                            
+                            <input type="hidden" formControlName="codigoMedico">
                             <div class="row">
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                        <input type="text" formControlName="codigoMedico" matInput placeholder="Medico"
+                                        
+                            <input type="hidden" formControlName="codigoHistoriaClinica">
+                                        <input type="text" value="{{consultas.medico.apellidos}} {{consultas.medico.nombres}}" formControlName="medico" matInput placeholder="Medico"
                                             class="form-control">
                                     </mat-form-field>
                                 </div>
@@ -58,6 +62,8 @@
                                     </mat-form-field>
                                 </div>
                             </div>
+                            <button mat-raised-button type="submit" class="btn btn-primary pull-right">Guardar</button>
+                            <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
